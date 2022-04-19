@@ -13,7 +13,10 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
-
+    .enableVueLoader(() => {}, {
+        version: 3,
+        runtimeCompilerBuild: true,
+     })
     /*
      * ENTRY CONFIG
      *
