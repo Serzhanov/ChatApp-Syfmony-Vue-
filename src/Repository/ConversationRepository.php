@@ -4,9 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Conversation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
+use function Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Conversation|null find($id, $lockMode = null, $lockVersion = null)
@@ -120,6 +120,7 @@ class ConversationRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+
     public function checkIfUserisParticipant(int $conversationId, int $userId)
     {
         $qb = $this->createQueryBuilder('c');
@@ -134,6 +135,24 @@ class ConversationRepository extends ServiceEntityRepository
                 'userId' => $userId
             ])
         ;
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function findParticipantByConverstionIdAndUserId(int $conversationId, int $userId)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb->
+        where(
+            $qb->expr()->andX(
+                $qb->expr()->eq('p.conversation', ':conversationId'),
+                $qb->expr()->neq('p.user', ':userId')
+            )
+        )
+        ->setParameters([
+            'conversationId' => $conversationId,
+            'userId' => $userId
+        ]);
 
         return $qb->getQuery()->getOneOrNullResult();
     }

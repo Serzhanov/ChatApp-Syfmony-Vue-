@@ -46,7 +46,7 @@ class ConversationController extends AbstractController
       
    
     /**
-     * @Route("/", name="newConversations",methodes={"POST"})
+     * @Route("/", name="newConversations",methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      * @throws \Exception

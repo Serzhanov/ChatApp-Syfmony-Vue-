@@ -21,12 +21,12 @@ class ConversationVoter extends Voter
 
     const VIEW = 'view';
 
-    protected function supports(string $attribute, $subject)
+    protected function supports(string $attribute,mixed $subject):bool
     {
         return $attribute == self::VIEW && $subject instanceof Conversation;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token)
+    protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token):bool
     {
         $result = $this->conversationRepository->checkIfUserisParticipant(
             $subject->getId(),
