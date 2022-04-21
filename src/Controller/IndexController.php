@@ -21,7 +21,10 @@ class IndexController extends AbstractController
     {
 
         $config = Configuration::forSymmetricSigner(new Sha256(), InMemory::plainText('mercure_secret_key'));
-        $username = $this->getUser()->getUsername();
+        if($this->getUser()==null){
+            throw new \Exception("You have not signed in\n");
+        }
+        $username =$this->getUser()->getUsername();
         $token =  $config->builder()
             ->withClaim('mercure', ['subscribe' => [sprintf("/%s", $username)]])
             ->getToken(
