@@ -4,8 +4,7 @@
             <!-- Users box-->
            <Left />
             <!-- Chat Box-->
-           <router-view>
-            </router-view>
+            <router-view></router-view>
         </div>
     </div>
 

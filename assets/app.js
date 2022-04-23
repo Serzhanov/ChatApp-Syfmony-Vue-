@@ -26,7 +26,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 })
-
+console.log("gogog")
+console.log(document.querySelector('#app').dataset.username)
 store.commit("SET_USERNAME", document.querySelector('#app').dataset.username);
 
 const app = createApp( App )

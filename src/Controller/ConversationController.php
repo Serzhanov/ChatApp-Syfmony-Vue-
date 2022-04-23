@@ -110,10 +110,23 @@ class ConversationController extends AbstractController
         throw $e;
     }
 
+    //CROSS PROBLEM
 
-    return $this->json([
+    $response = new Response();
+    $response->setContent(json_encode([
         'id' => $conversation->getId()
-    ], Response::HTTP_CREATED, [], []);
+    ], Response::HTTP_CREATED, [], []));
+
+    $response->headers->set('Content-Type', 'application/json');
+    // Allow all websites
+    $response->headers->set('Access-Control-Allow-Origin', '*');
+
+
+
+    // return $this->json([
+    //     'id' => $conversation->getId()
+    // ], Response::HTTP_CREATED, [], []);
+    return $response;
     }
 
 
@@ -128,6 +141,8 @@ class ConversationController extends AbstractController
         $hubUrl = $this->getParameter('mercure.default_hub');
 
         $this->addLink($request, new Link('mercure', $hubUrl));
+
+        
         return $this->json($conversations);
     }
 

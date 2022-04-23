@@ -33,7 +33,8 @@
         mounted() {
             const vm = this;
             this.$store.dispatch("GET_CONVERSATIONS")
-                .then(() => {
+                .then((res) => {
+                    console.log(res)
                     let url = new URL(this.HUBURL);
                     url.searchParams.append('topic', `/conversations/${this.USERNAME}`)
                     const eventSource = new EventSource(url, {

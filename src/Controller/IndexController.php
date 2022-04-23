@@ -43,14 +43,19 @@ class IndexController extends AbstractController
                 (new \DateTime())
                 ->add(new \DateInterval('PT2H')),
                 '/.well-known/mercure',
-                null,
+                'localhost',
                 false,
                 true,
                 false,
                 'strict'
             )
         );
+       
 
+        
+        
+        // Allow all websites
+        
         return $response;
     }
 }

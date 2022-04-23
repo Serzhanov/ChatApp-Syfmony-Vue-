@@ -6,9 +6,8 @@ Mercure is a protocol allowing to push data updates to web browsers and other HT
 It is especially useful to publish async and real-time updates of resources served through web APIs, to reactive web and mobile apps.
 
 [![Awesome](https://awesome.re/badge.svg)](docs/ecosystem/awesome.md)
-[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/mercure)](https://artifacthub.io/packages/search?repo=mercure)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/dunglas/mercure)](https://pkg.go.dev/github.com/dunglas/mercure)
-![CI](https://github.com/dunglas/mercure/workflows/CI/badge.svg)
+[![GoDoc](https://godoc.org/github.com/dunglas/mercure?status.svg)](https://godoc.org/github.com/dunglas/mercure/hub)
+[![Build Status](https://travis-ci.com/dunglas/mercure.svg?branch=master)](https://travis-ci.com/dunglas/mercure)
 [![Coverage Status](https://coveralls.io/repos/github/dunglas/mercure/badge.svg?branch=master)](https://coveralls.io/github/dunglas/mercure?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/dunglas/mercure)](https://goreportcard.com/report/github.com/dunglas/mercure)
 
@@ -18,20 +17,16 @@ It is especially useful to publish async and real-time updates of resources serv
 * [Full documentation](https://mercure.rocks/docs)
 * [Demo](https://demo.mercure.rocks/)
 
-The protocol has been published as [an Internet Draft](https://datatracker.ietf.org/doc/draft-dunglas-mercure/) that [is maintained in this repository](https://mercure.rocks/spec).
+The protocol has been published as [an Internet Draft](https://datatracker.ietf.org/doc/draft-dunglas-mercure/) that [is maintained in this repository](spec/mercure.md).
 
-A reference, production-grade, implementation of [**a Mercure hub**](https://mercure.rocks/docs/hub/install) (the server) is also available in this repository.
+A reference, production-grade, implementation of [**a Mercure hub**](docs/hub/install.md) (the server) is also available in this repository.
 It's a free software (AGPL) written in Go. It is provided along with a library that can be used in any Go application to implement the Mercure protocol directly (without a hub) and an official Docker image.
 
-In addition, a managed and high-scalability version of the Mercure.rocks hub is [available on Mercure.rocks](https://mercure.rocks/pricing).
+In addition, a managed and high-scalability version of Mercure is [available in private beta](mailto:dunglas+mercure@gmail.com?subject=I%27m%20interested%20in%20Mercure%27s%20private%20beta).
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License and Copyright
-
-See https://mercure.rocks/docs/hub/license.
 
 ## Credits
 

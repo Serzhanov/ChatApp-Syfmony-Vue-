@@ -1,4 +1,5 @@
 <template>
+    <div>Daun?</div>
     <div class="col-7 px-0">
         <div class="px-4 py-5 chat-box bg-white" ref="messagesBody">
             <template v-for="(message, index, key) in MESSAGES " :key="key">

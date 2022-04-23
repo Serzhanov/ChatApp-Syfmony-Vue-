@@ -10,4 +10,4 @@ export const store=createStore({
         conversation,
         user
     }
-})
+});
